@@ -4,16 +4,13 @@ using Random
 
 youtube_like_params = Dict(
     "name"  => "yt",
-    "n"     => 5000,
     "nout"  => 0,
-    "η"     => 1.0,
     "d_min" => 5,
     "d_max" => 100,
     "τ₁"    => 1.87,       
     "c_min" => 50,
     "c_max" => 500,
     "τ₂"    => 2.13,
-    "ξ"     => 0.1,
     "ρ"     => 0.37,
 )
 
