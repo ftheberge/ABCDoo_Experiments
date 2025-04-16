@@ -15,13 +15,13 @@ youtube_like_params = Dict(
 )
 
 # Universal params
-seed = 42
+seed = 123
 d_max_iter = 1000
 c_max_iter = 1000
 Random.seed!(seed)
 
 for params in [youtube_like_params]
-    for d in [2]
+    for d in [5]
         @info "$(params["name"]), d=$d"
 
         name = params["name"]

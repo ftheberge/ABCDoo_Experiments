@@ -43,4 +43,3 @@ Then use the notebook ```rho_vs_overlap_density.ipynb```.
 ## CompareAlgorithms
 
 Code to compare clustering algorithms over several ABCDoo graphs with varying parameters.
-
