@@ -15,14 +15,14 @@ youtube_params = Dict(
     "name" => "youtube",
     "n" => 52675,
     "nout" => 0,
-    "η" => 2.4528144280968203,
+    "η" => 2.45,
     "d_min" => 5,
     "d_max" => 1928,
-    "τ₁" => 1.8702187087097446,
+    "τ₁" => 1.87,
     "c_min" => 10,
     "c_max" => 3001,
-    "τ₂" => 2.130965769664415,
-    "ξ" => 0.5928066048845747,
+    "τ₂" => 2.13,
+    "ξ" => 0.59,
 )
 
 # Amazon Graph vars
@@ -57,7 +57,7 @@ dblp_params = Dict(
 
 
 for params in [youtube_params, dblp_params, amazon_params]
-    for d in [2, 5, 10]
+    for d in [2, 8, 64]
         for ρ in range(-0.5, 0.5, step=0.1)
             @info "$(params["name"]), d=$d, rho=$ρ"
 

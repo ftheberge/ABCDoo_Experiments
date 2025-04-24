@@ -69,11 +69,13 @@ def load_abcdoo(graph_path, coms_path, has_outliers=True):
     g.vs['comms'] = node_coms
     
     # Build list of communities
-    coms = defaultdict(set)
-    for i, c in enumerate(g.vs['comms']):
+    n_coms = max([max(coms, default=0) for coms in node_coms]) + 1  # recall 0 is a com
+    coms = [set() for i in range(n_coms)]
+    for i, c in enumerate(node_coms):
         for com in c:
             coms[com].add(i)
-    #coms = list(coms.values())
+    for i in range(len(coms)):
+        coms[i] = frozenset(coms[i])
     return g, coms
 
 
@@ -93,9 +95,11 @@ def load_coms(coms_path, has_outliers):
                 coms = [int(y)-1 for y in x.split(',')]  # map to 0-based
             node_coms.append(frozenset(coms))
 
-    coms = defaultdict(set)
+    n_coms = max([max(coms, default=0) for coms in node_coms]) + 1  # recall 0 is a com
+    coms = [set() for i in range(n_coms)]
     for i, c in enumerate(node_coms):
         for com in c:
             coms[com].add(i)
-    coms = list(coms.values())
+    for i in range(len(coms)):
+        coms[i] = frozenset(coms[i])
     return coms, node_coms

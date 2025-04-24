@@ -60,7 +60,7 @@ dblp_params = Dict(
 
 
 for params in [youtube_params, dblp_params, amazon_params]
-    for d in [2,5,10]
+    for d in [2,8,64]
         @info "$(params["name"]), d=$d"
 
         name = params["name"]
