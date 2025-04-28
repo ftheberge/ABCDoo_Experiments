@@ -215,7 +215,7 @@ for n, nout, x_min, x_max, beta_1, c_min, c_max, beta_2, output_file in [list(yo
 
     with open(output_file, "w") as f:
         for i, c in enumerate(node_coms):
-            f.write(f"{i+1}\t{c}\n")  # Reindex nodes to 1 for consistency with julia
+            f.write(f"{i+1}\t{[int(x) for x in c]}\n")  # Reindex nodes to 1 for consistency with julia
 
         if nout > 0:
             next_id = len(node_coms)+1
