@@ -74,6 +74,7 @@ def make_icdfs(endpoints, nodes_per_com, coms_per_node, n_most_to_cut):
                 # get the intersection of these 4 communities
                 intersection = set.intersection(*[two_overlaps[tuple(sorted(y))] for y in combinations(x,2)])
                 # if there are any nodes not in most_coms we've already counted this overlap
+                pbar.update()
                 if not intersection.issubset(most_coms): 
                     continue
                 size = len(intersection)
@@ -81,7 +82,6 @@ def make_icdfs(endpoints, nodes_per_com, coms_per_node, n_most_to_cut):
 
                 most_coms_size_one_overlaps[i] -= 1/(size - 1) # we do this for i once for each other node in the overlap
                 most_coms_size_one_overlaps[j] -= 1/(size - 1)
-                pbar.update()
 
     s = sum(round(x) for x in most_coms_size_one_overlaps.values())
     icdf4[0] += s
